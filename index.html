@@ -216,12 +216,21 @@ section{position:relative;z-index:1;}
 
 /* CERTS */
 #certs{padding:40px 0 100px;}
-.cert-row{display:flex;gap:12px;flex-wrap:wrap;margin-top:36px;}
-.cert-badge{background:var(--card);border:1px solid var(--border);border-radius:var(--r);padding:14px 18px;display:flex;align-items:center;gap:10px;transition:all .2s;}
-.cert-badge:hover{border-color:var(--border2);}
-.cert-icon{font-size:18px;}
-.cert-name{font-size:12px;color:var(--text);font-weight:500;}
-.cert-src{font-size:10px;color:var(--muted);}
+.cert-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:14px;margin-top:36px;}
+.cert-card{background:var(--card);border:1px solid var(--border);border-radius:var(--r);padding:20px;display:flex;flex-direction:column;gap:12px;transition:all .2s;}
+.cert-card:hover{border-color:var(--border2);transform:translateY(-2px);}
+.cert-top{display:flex;align-items:flex-start;gap:10px;}
+.cert-icon{font-size:20px;line-height:1;}
+.cert-name{font-size:14px;color:var(--text);font-weight:600;line-height:1.4;}
+.cert-src{font-size:11px;color:var(--muted);margin-top:3px;}
+.cert-actions{display:flex;gap:10px;flex-wrap:wrap;}
+.cert-preview-wrap{margin-top:16px;background:var(--card2);border:1px solid var(--border2);border-radius:16px;padding:16px;}
+.cert-preview-head{display:flex;justify-content:space-between;align-items:center;gap:12px;margin-bottom:10px;flex-wrap:wrap;}
+.cert-preview-title{font-size:12px;color:var(--cyan);letter-spacing:.06em;text-transform:uppercase;}
+.cert-preview-link{font-size:11px;color:var(--text);text-decoration:none;border:1px solid var(--border);border-radius:6px;padding:6px 10px;transition:all .2s;}
+.cert-preview-link:hover{border-color:var(--cyan);color:var(--cyan);}
+.cert-preview-frame{width:100%;height:min(70vh,560px);border:1px solid var(--border);border-radius:10px;background:#06060f;}
+.cert-note{font-size:11px;color:var(--muted);margin-top:8px;}
 
 /* HIRE ME */
 #hireable{padding:80px 0;}
@@ -264,6 +273,8 @@ footer{border-top:1px solid var(--border);padding:28px 0;text-align:center;font-
   .shot-main{height:min(52vh,360px);}
   .shot-thumbs{grid-template-columns:1fr 1fr;}
   .ach-grid{grid-template-columns:1fr;}
+  .cert-grid{grid-template-columns:1fr;}
+  .cert-preview-frame{height:min(58vh,460px);}
   .hire-box{grid-template-columns:1fr;}.hire-ctas{align-items:flex-start;}
   .edu-item{grid-template-columns:1fr;}.edu-left{text-align:left;padding:0 0 8px 0;}.edu-left::after,.edu-left::before{display:none;}.edu-right{padding:0 0 32px 0;}
   .contact-box{padding:48px 24px;}
@@ -639,10 +650,57 @@ footer{border-top:1px solid var(--border);padding:28px 0;text-align:center;font-
 <section id="certs">
   <div class="container">
     <div class="fade"><div class="sec-tag">Certifications</div></div>
-    <div class="cert-row fade fd1">
-      <div class="cert-badge"><span class="cert-icon">📊</span><div><div class="cert-name">Data Structures & Algorithms</div><div class="cert-src">CipherSchools · Jul 2024</div></div></div>
-      <div class="cert-badge"><span class="cert-icon">🖥️</span><div><div class="cert-name">Hardware & Operating Systems</div><div class="cert-src">Coursera (IBM) · Mar 2025</div></div></div>
-      <div class="cert-badge"><span class="cert-icon">🐍</span><div><div class="cert-name">Python — 2-Star HackerRank</div><div class="cert-src">HackerRank · Jun 2024</div></div></div>
+    <div class="cert-grid fade fd1">
+      <div class="cert-card">
+        <div class="cert-top">
+          <span class="cert-icon">🖥️</span>
+          <div>
+            <div class="cert-name">Hardware Certificate</div>
+            <div class="cert-src">OneDrive Shared Certificate</div>
+          </div>
+        </div>
+        <div class="cert-actions">
+          <a href="https://onedrive.live.com/?redeem=aHR0cHM6Ly8xZHJ2Lm1zL2IvYy85MTBjZWRkMDU5YTZmMTJlL0VTSEh6SDZGd2VkRnR2bE5iNXJBQnFBQkEtYTdFMEpDRTdsdkVlNGN0LVpPYkE_ZT1OM2JxT3M&cid=910CEDD059A6F12E&id=910CEDD059A6F12E%21s7eccc721c18545e7b6f94d6f9ac006a0&parId=910CEDD059A6F12E%21104&o=OneUp" target="_blank" rel="noopener" class="btn-v">↗ Open / Download</a>
+        </div>
+      </div>
+      <div class="cert-card">
+        <div class="cert-top">
+          <span class="cert-icon">📊</span>
+          <div>
+            <div class="cert-name">Data Structures Certificate</div>
+            <div class="cert-src">CipherSchools</div>
+          </div>
+        </div>
+        <div class="cert-actions">
+          <button type="button" class="btn-g cert-preview-btn" data-title="Data Structures Certificate" data-url="https://www.cipherschools.com/certificate/preview?id=6881293e589a14da23de45e9">👁 Preview Here</button>
+          <a href="https://www.cipherschools.com/certificate/preview?id=6881293e589a14da23de45e9" target="_blank" rel="noopener" class="btn-v">↗ Open / Download</a>
+        </div>
+      </div>
+      <div class="cert-card">
+        <div class="cert-top">
+          <span class="cert-icon">🐍</span>
+          <div>
+            <div class="cert-name">Python - 2-Star HackerRank</div>
+            <div class="cert-src">HackerRank · Jun 2024</div>
+          </div>
+        </div>
+        <div class="cert-note">Public preview link not added for this certificate.</div>
+      </div>
+    </div>
+    <div class="cert-preview-wrap fade fd2" id="cert-preview-wrap">
+      <div class="cert-preview-head">
+        <div class="cert-preview-title" id="cert-preview-title">Select a certificate to preview</div>
+        <a class="cert-preview-link" id="cert-preview-link" href="https://www.cipherschools.com/certificate/preview?id=6881293e589a14da23de45e9" target="_blank" rel="noopener">↗ Open in new tab</a>
+      </div>
+      <iframe
+        id="cert-preview-frame"
+        class="cert-preview-frame"
+        title="Certificate Preview"
+        src="https://www.cipherschools.com/certificate/preview?id=6881293e589a14da23de45e9"
+        loading="lazy"
+        referrerpolicy="no-referrer-when-downgrade"
+      ></iframe>
+      <p class="cert-note">If preview is blocked by the source website, use the Open / Download button to view and download in a new tab.</p>
     </div>
   </div>
 </section>
@@ -766,6 +824,21 @@ document.querySelectorAll('.shot-trigger').forEach(trigger=>{
       thumbs.forEach(t=>t.classList.remove('is-active'));
       thumb.classList.add('is-active');
     });
+  });
+});
+
+/* Certificate preview */
+const certPreviewFrame=document.getElementById('cert-preview-frame');
+const certPreviewTitle=document.getElementById('cert-preview-title');
+const certPreviewLink=document.getElementById('cert-preview-link');
+
+document.querySelectorAll('.cert-preview-btn').forEach(btn=>{
+  btn.addEventListener('click',()=>{
+    const title=btn.dataset.title;
+    const url=btn.dataset.url;
+    certPreviewFrame.src=url;
+    certPreviewTitle.textContent=title+' (inline preview)';
+    certPreviewLink.href=url;
   });
 });
 </script>
